@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Capidex
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created with React with the intention of helping users track their stocks/cryptocurrencies. This web application has a backend with a login feature and personal wishlists using node.js and mongoDB.
+
+![capidexdemo](https://github.com/VictorXie03/Capidex/assets/112527883/5cc8168d-10ae-4c0c-b949-4a69d19486b3)
 
 ## Available Scripts
 
