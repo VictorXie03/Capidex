@@ -8,6 +8,7 @@ import Show from './Cryptopage/pages/Show';
 import StockHome from './Stockpage/pages/StockHome';
 import StockShow from './Stockpage/pages/StockShow';
 import Watchlist from './Watchlist';
+import ChatComponent from './ChatComponent';
 
 
 function App() {
@@ -165,6 +166,7 @@ function App() {
                         <Route path="/cryptocurrency/:id" element={<Show />} />
                         <Route path="/stock/:symbol" element={<StockShow />} />
                     </Routes>
+                    <ChatComponent />
                 </div> : <div className="home-page">
                     <LoginForm Login={loginDetails} Register={registerDetails} error=""></LoginForm>
                 </div>

@@ -6,31 +6,36 @@
 
 
 
+/* Watchlist Container */
 .watchlist {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 1px solid #ccc;
-    padding: 5vw;
-    width: 90vw;
+    border: 2px solid #007BFF;
+    border-radius: 10px;
+    padding: 3vh;
+    width: 80vw;
     max-width: 1000px;
     height: 70vh;
     max-height: 90vh;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    background-color: #FFFFFF;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     z-index: 9999;
     overflow-y: scroll;
     margin: 0 auto;
-    font-size: 2.2rem;
+    font-size: 2rem;
 }
 
+/* Watchlist Title */
 .watchlist h2 {
-    font-size: 4vw;
-    margin: 0 0 3vw 0;
+    font-size: 3.5rem;
+    margin: 0 0 2vh 0;
     text-align: center;
+    color: #007BFF;
 }
 
+/* Watchlist Items */
 .watchlist ul {
     list-style: none;
     padding: 0;
@@ -38,12 +43,18 @@
 }
 
 .watchlist li {
-    margin-bottom: 1vw;
+    margin-bottom: 1.5vh;
 }
 
 .watchlist li a {
     color: #333;
     text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.watchlist li a:hover {
+    color: #007BFF;
 }
 
 img {
@@ -397,4 +408,71 @@ img.resize {
 
 .stock-price {
     font-weight: bold;
+}
+
+/* ChatGPTContainer styles */
+.chatgpt-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    transition: right 0.3s ease-in-out;
+}
+
+.chatgpt-container.closed {
+    right: -300px;
+}
+
+/* ChatGPTBox styles */
+.chatgpt-box {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* User and Bot message styles */
+.chatgpt-user {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.chatgpt-bot {
+    color: #007bff;
+    margin-bottom: 5px;
+}
+
+/* Input and Send button styles */
+.chatgpt-input {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.chatgpt-button {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* Toggle button styles */
+.chatgpt-toggle-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
 }
