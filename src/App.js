@@ -29,7 +29,7 @@ function App() {
         console.log(coinsFromServer)
     }
     const loginDetails = async (user) => {
-        const res = await fetch('http://localhost:9999/user/login', {
+        const res = await fetch('https://capidex.onrender.com/login', {
             credentials: 'include',
             method: 'POST',
             headers: {
@@ -43,7 +43,7 @@ function App() {
         }
     }
     const registerDetails = async (user) => {
-        const res = await fetch('http://localhost:9999/user/register', {
+        const res = await fetch('https://capidex.onrender.com/register', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
@@ -55,7 +55,7 @@ function App() {
     }
     const addStocklist = async (stock) => {
         getStocklist()
-        const res = await fetch('http://localhost:9999/stocklist', {
+        const res = await fetch('https://capidex.onrender.com/stocklist', {
             credentials: 'include',
             method: 'POST',
             headers: {
@@ -68,7 +68,7 @@ function App() {
     }
 
     const addCoinlist = async (name, price, id) => {
-        const res = await fetch('http://localhost:9999/coinlist', {
+        const res = await fetch('https://capidex.onrender.com/coinlist', {
             credentials: 'include',
             method: 'POST',
             headers: {
@@ -85,7 +85,7 @@ function App() {
     }, [loggedIn])
 
     const fetchCoinlist = async (coinlists) => {
-        const res = await fetch('http://localhost:9999/coinlist', {
+        const res = await fetch('https://capidex.onrender.com/coinlist', {
             credentials: 'include',
             method: 'GET',
             headers: {
@@ -104,7 +104,7 @@ function App() {
         getStocklist()
     }, [loggedIn])
     const fetchStocklist = async (stocklists) => {
-        const res = await fetch('http://localhost:9999/stocklist', {
+        const res = await fetch('https://capidex.onrender.com/stocklist', {
             credentials: 'include',
             method: 'GET',
             headers: {
@@ -119,7 +119,7 @@ function App() {
     console.log(stocklist)
 
     const deleteCoinlist = async (id) => {
-        const res = await fetch(`http://localhost:9999/coinlist/${id}`, {
+        const res = await fetch(`https://capidex.onrender.com/coinlist/${id}`, {
             credentials: 'include',
             method: 'DELETE',
         })
@@ -131,7 +131,7 @@ function App() {
 
     }
     const deleteStocklist = async (id) => {
-        const res = await fetch(`http://localhost:9999/stocklist/${id}`, {
+        const res = await fetch(`https://capidex.onrender.com/stocklist/${id}`, {
             credentials: 'include',
             method: 'DELETE',
         })
@@ -144,7 +144,7 @@ function App() {
     }
 
     const logout = async () => {
-        const res = await fetch('http://localhost:9999/user/logout', {
+        const res = await fetch('https://capidex.onrender.com/user/logout', {
             credentials: 'include'
         })
         const data = await res.json()
