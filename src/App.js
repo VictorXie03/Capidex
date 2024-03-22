@@ -29,7 +29,7 @@ function App() {
         console.log(coinsFromServer)
     }
     const loginDetails = async (user) => {
-        const res = await fetch('https://capidex.onrender.com/login', {
+        const res = await fetch('https://capidex.onrender.com/user/login', {
             credentials: 'include',
             method: 'POST',
             headers: {
@@ -43,7 +43,7 @@ function App() {
         }
     }
     const registerDetails = async (user) => {
-        const res = await fetch('https://capidex.onrender.com/register', {
+        const res = await fetch('https://capidex.onrender.com/user/register', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
