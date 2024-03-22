@@ -33,7 +33,8 @@ function App() {
             credentials: 'include',
             method: 'POST',
             headers: {
-                'Content-type': 'application/json'
+                'Content-type': 'application/json',
+                "Access-Control-Allow-Origin": "*",
             },
             body: JSON.stringify(user)
         })
@@ -46,7 +47,8 @@ function App() {
         const res = await fetch('https://capidex.onrender.com/user/register', {
             method: 'POST',
             headers: {
-                'Content-type': 'application/json'
+                'Content-type': 'application/json',
+                "Access-Control-Allow-Origin": "*",
             },
             body: JSON.stringify(user)
         })
@@ -59,7 +61,8 @@ function App() {
             credentials: 'include',
             method: 'POST',
             headers: {
-                'Content-type': 'application/json'
+                'Content-type': 'application/json',
+                "Access-Control-Allow-Origin": "*",
             },
             body: JSON.stringify({ name: stock.name, symbol: stock.symbol, price: stock.price })
         })
@@ -72,7 +75,8 @@ function App() {
             credentials: 'include',
             method: 'POST',
             headers: {
-                'Content-type': 'application/json'
+                'Content-type': 'application/json',
+                "Access-Control-Allow-Origin": "*",
             },
             body: JSON.stringify(name, price, id)
         })
@@ -89,7 +93,8 @@ function App() {
             credentials: 'include',
             method: 'GET',
             headers: {
-                'Content-type': 'application/json'
+                'Content-type': 'application/json',
+                "Access-Control-Allow-Origin": "*",
             },
             body: JSON.stringify(coinlists)
 
@@ -108,7 +113,8 @@ function App() {
             credentials: 'include',
             method: 'GET',
             headers: {
-                'Content-type': 'application/json'
+                'Content-type': 'application/json',
+                "Access-Control-Allow-Origin": "*",
             },
             body: JSON.stringify(stocklists)
 
@@ -122,6 +128,9 @@ function App() {
         const res = await fetch(`https://capidex.onrender.com/coinlist/${id}`, {
             credentials: 'include',
             method: 'DELETE',
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+            },
         })
         const data = await res.json()
         if (!res.ok) {
@@ -134,6 +143,9 @@ function App() {
         const res = await fetch(`https://capidex.onrender.com/stocklist/${id}`, {
             credentials: 'include',
             method: 'DELETE',
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+            },
         })
         const data = await res.json()
         if (!res.ok) {
@@ -145,7 +157,10 @@ function App() {
 
     const logout = async () => {
         const res = await fetch('https://capidex.onrender.com/user/logout', {
-            credentials: 'include'
+            credentials: 'include',
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+            },
         })
         const data = await res.json()
         alert(data.msg)
