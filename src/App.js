@@ -35,6 +35,7 @@ function App() {
             headers: {
                 'Content-type': 'application/json',
                 "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Credentials": true,
             },
             body: JSON.stringify(user)
         })
@@ -63,6 +64,7 @@ function App() {
             headers: {
                 'Content-type': 'application/json',
                 "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Credentials": true,
             },
             body: JSON.stringify({ name: stock.name, symbol: stock.symbol, price: stock.price })
         })
@@ -77,6 +79,7 @@ function App() {
             headers: {
                 'Content-type': 'application/json',
                 "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Credentials": true,
             },
             body: JSON.stringify(name, price, id)
         })
@@ -95,6 +98,7 @@ function App() {
             headers: {
                 'Content-type': 'application/json',
                 "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Credentials": true,
             },
             body: JSON.stringify(coinlists)
 
@@ -115,6 +119,7 @@ function App() {
             headers: {
                 'Content-type': 'application/json',
                 "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Credentials": true,
             },
             body: JSON.stringify(stocklists)
 
@@ -130,6 +135,7 @@ function App() {
             method: 'DELETE',
             headers: {
                 "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Credentials": true,
             },
         })
         const data = await res.json()
@@ -145,6 +151,7 @@ function App() {
             method: 'DELETE',
             headers: {
                 "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Credentials": true,
             },
         })
         const data = await res.json()
@@ -160,6 +167,7 @@ function App() {
             credentials: 'include',
             headers: {
                 "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Credentials": true,
             },
         })
         const data = await res.json()
