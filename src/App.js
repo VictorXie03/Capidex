@@ -34,8 +34,9 @@ function App() {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
-                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Origin": "https://capidex.netlify.app/",
                 "Access-Control-Allow-Credentials": true,
+                "Access-Control-Allow-Methods": "GET,POST,OPTIONS,DELETE,PUT",
             },
             body: JSON.stringify(user)
         })
@@ -49,7 +50,8 @@ function App() {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
-                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Origin": "https://capidex.netlify.app/",
+                "Access-Control-Allow-Methods": "GET,POST,OPTIONS,DELETE,PUT",
             },
             body: JSON.stringify(user)
         })
@@ -63,8 +65,9 @@ function App() {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
-                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Origin": "https://capidex.netlify.app/",
                 "Access-Control-Allow-Credentials": true,
+                "Access-Control-Allow-Methods": "GET,POST,OPTIONS,DELETE,PUT",
             },
             body: JSON.stringify({ name: stock.name, symbol: stock.symbol, price: stock.price })
         })
@@ -78,8 +81,9 @@ function App() {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
-                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Origin": "https://capidex.netlify.app/",
                 "Access-Control-Allow-Credentials": true,
+                "Access-Control-Allow-Methods": "GET,POST,OPTIONS,DELETE,PUT",
             },
             body: JSON.stringify(name, price, id)
         })
@@ -97,8 +101,9 @@ function App() {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json',
-                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Origin": "https://capidex.netlify.app/",
                 "Access-Control-Allow-Credentials": true,
+                "Access-Control-Allow-Methods": "GET,POST,OPTIONS,DELETE,PUT",
             },
             body: JSON.stringify(coinlists)
 
@@ -118,8 +123,9 @@ function App() {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json',
-                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Origin": "https://capidex.netlify.app/",
                 "Access-Control-Allow-Credentials": true,
+                "Access-Control-Allow-Methods": "GET,POST,OPTIONS,DELETE,PUT",
             },
             body: JSON.stringify(stocklists)
 
@@ -134,8 +140,9 @@ function App() {
             credentials: 'include',
             method: 'DELETE',
             headers: {
-                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Origin": "https://capidex.netlify.app/",
                 "Access-Control-Allow-Credentials": true,
+                "Access-Control-Allow-Methods": "GET,POST,OPTIONS,DELETE,PUT",
             },
         })
         const data = await res.json()
@@ -150,8 +157,9 @@ function App() {
             credentials: 'include',
             method: 'DELETE',
             headers: {
-                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Origin": "https://capidex.netlify.app/",
                 "Access-Control-Allow-Credentials": true,
+                "Access-Control-Allow-Methods": "GET,POST,OPTIONS,DELETE,PUT",
             },
         })
         const data = await res.json()
@@ -166,8 +174,9 @@ function App() {
         const res = await fetch('https://capidex.onrender.com/user/logout', {
             credentials: 'include',
             headers: {
-                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Origin": "https://capidex.netlify.app/",
                 "Access-Control-Allow-Credentials": true,
+                "Access-Control-Allow-Methods": "GET,POST,OPTIONS,DELETE,PUT",
             },
         })
         const data = await res.json()
