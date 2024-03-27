@@ -42,7 +42,6 @@ Ensure the following software is installed on your system:
 
 - Node.js
 - npm
-- MongoDB
 
 ### Installation
 
@@ -63,11 +62,6 @@ Ensure the following software is installed on your system:
     ```bash
     npm install
     ```
-
-4. Configure MongoDB:
-
-    - Ensure MongoDB is running.
-    - Update the MongoDB connection details in the project configuration.
 
 ## Usage
 
