@@ -37,7 +37,6 @@ function App() {
                 'Access-Control-Allow-Headers': 'Content-Type,Authorization',
                 "Access-Control-Allow-Origin": "https://capidex.netlify.app/",
                 "Access-Control-Allow-Credentials": true,
-                "Access-Control-Allow-Methods": "GET,POST,OPTIONS,DELETE,PUT",
             },
             body: JSON.stringify(user)
         })
@@ -53,7 +52,6 @@ function App() {
                 'Content-type': 'application/json',
                 'Access-Control-Allow-Headers': 'Content-Type,Authorization',
                 "Access-Control-Allow-Origin": "https://capidex.netlify.app/",
-                "Access-Control-Allow-Methods": "GET,POST,OPTIONS,DELETE,PUT",
             },
             body: JSON.stringify(user)
         })
@@ -70,7 +68,6 @@ function App() {
                 'Access-Control-Allow-Headers': 'Content-Type,Authorization',
                 "Access-Control-Allow-Origin": "https://capidex.netlify.app/",
                 "Access-Control-Allow-Credentials": true,
-                "Access-Control-Allow-Methods": "GET,POST,OPTIONS,DELETE,PUT",
             },
             body: JSON.stringify({ name: stock.name, symbol: stock.symbol, price: stock.price })
         })
@@ -87,7 +84,6 @@ function App() {
                 'Access-Control-Allow-Headers': 'Content-Type,Authorization',
                 "Access-Control-Allow-Origin": "https://capidex.netlify.app/",
                 "Access-Control-Allow-Credentials": true,
-                "Access-Control-Allow-Methods": "GET,POST,OPTIONS,DELETE,PUT",
             },
             body: JSON.stringify(name, price, id)
         })
@@ -107,7 +103,6 @@ function App() {
                 'Content-type': 'application/json',
                 "Access-Control-Allow-Origin": "https://capidex.netlify.app/",
                 "Access-Control-Allow-Credentials": true,
-                "Access-Control-Allow-Methods": "GET,POST,OPTIONS,DELETE,PUT",
             },
             body: JSON.stringify(coinlists)
 
@@ -129,7 +124,6 @@ function App() {
                 'Content-type': 'application/json',
                 "Access-Control-Allow-Origin": "https://capidex.netlify.app/",
                 "Access-Control-Allow-Credentials": true,
-                "Access-Control-Allow-Methods": "GET,POST,OPTIONS,DELETE,PUT",
             },
             body: JSON.stringify(stocklists)
 
@@ -146,7 +140,6 @@ function App() {
             headers: {
                 "Access-Control-Allow-Origin": "https://capidex.netlify.app/",
                 "Access-Control-Allow-Credentials": true,
-                "Access-Control-Allow-Methods": "GET,POST,OPTIONS,DELETE,PUT",
             },
         })
         const data = await res.json()
@@ -163,7 +156,6 @@ function App() {
             headers: {
                 "Access-Control-Allow-Origin": "https://capidex.netlify.app/",
                 "Access-Control-Allow-Credentials": true,
-                "Access-Control-Allow-Methods": "GET,POST,OPTIONS,DELETE,PUT",
             },
         })
         const data = await res.json()
@@ -180,7 +172,6 @@ function App() {
             headers: {
                 "Access-Control-Allow-Origin": "https://capidex.netlify.app/",
                 "Access-Control-Allow-Credentials": true,
-                "Access-Control-Allow-Methods": "GET,POST,OPTIONS,DELETE,PUT",
             },
         })
         const data = await res.json()
