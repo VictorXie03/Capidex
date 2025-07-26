@@ -29,11 +29,14 @@ function App() {
         console.log(coinsFromServer)
     }
     const loginDetails = async (user) => {
-        const res = await fetch('http://localhost:9999/user/login', {
+        const res = await fetch('https://capidex.onrender.com/user/login', {
             credentials: 'include',
             method: 'POST',
             headers: {
-                'Content-type': 'application/json'
+                'Content-type': 'application/json',
+                'Access-Control-Allow-Headers': 'Content-Type,Authorization',
+                "Access-Control-Allow-Origin": "https://capidex.netlify.app/",
+                "Access-Control-Allow-Credentials": true,
             },
             body: JSON.stringify(user)
         })
@@ -43,10 +46,12 @@ function App() {
         }
     }
     const registerDetails = async (user) => {
-        const res = await fetch('http://localhost:9999/user/register', {
+        const res = await fetch('https://capidex.onrender.com/user/register', {
             method: 'POST',
             headers: {
-                'Content-type': 'application/json'
+                'Content-type': 'application/json',
+                'Access-Control-Allow-Headers': 'Content-Type,Authorization',
+                "Access-Control-Allow-Origin": "https://capidex.netlify.app/",
             },
             body: JSON.stringify(user)
         })
@@ -55,11 +60,14 @@ function App() {
     }
     const addStocklist = async (stock) => {
         getStocklist()
-        const res = await fetch('http://localhost:9999/stocklist', {
+        const res = await fetch('https://capidex.onrender.com/stocklist', {
             credentials: 'include',
             method: 'POST',
             headers: {
-                'Content-type': 'application/json'
+                'Content-type': 'application/json',
+                'Access-Control-Allow-Headers': 'Content-Type,Authorization',
+                "Access-Control-Allow-Origin": "https://capidex.netlify.app/",
+                "Access-Control-Allow-Credentials": true,
             },
             body: JSON.stringify({ name: stock.name, symbol: stock.symbol, price: stock.price })
         })
@@ -68,11 +76,14 @@ function App() {
     }
 
     const addCoinlist = async (name, price, id) => {
-        const res = await fetch('http://localhost:9999/coinlist', {
+        const res = await fetch('https://capidex.onrender.com/coinlist', {
             credentials: 'include',
             method: 'POST',
             headers: {
-                'Content-type': 'application/json'
+                'Content-type': 'application/json',
+                'Access-Control-Allow-Headers': 'Content-Type,Authorization',
+                "Access-Control-Allow-Origin": "https://capidex.netlify.app/",
+                "Access-Control-Allow-Credentials": true,
             },
             body: JSON.stringify(name, price, id)
         })
@@ -85,11 +96,13 @@ function App() {
     }, [loggedIn])
 
     const fetchCoinlist = async (coinlists) => {
-        const res = await fetch('http://localhost:9999/coinlist', {
+        const res = await fetch('https://capidex.onrender.com/coinlist', {
             credentials: 'include',
             method: 'GET',
             headers: {
-                'Content-type': 'application/json'
+                'Content-type': 'application/json',
+                "Access-Control-Allow-Origin": "https://capidex.netlify.app/",
+                "Access-Control-Allow-Credentials": true,
             },
             body: JSON.stringify(coinlists)
 
@@ -104,11 +117,13 @@ function App() {
         getStocklist()
     }, [loggedIn])
     const fetchStocklist = async (stocklists) => {
-        const res = await fetch('http://localhost:9999/stocklist', {
+        const res = await fetch('https://capidex.onrender.com/stocklist', {
             credentials: 'include',
             method: 'GET',
             headers: {
-                'Content-type': 'application/json'
+                'Content-type': 'application/json',
+                "Access-Control-Allow-Origin": "https://capidex.netlify.app/",
+                "Access-Control-Allow-Credentials": true,
             },
             body: JSON.stringify(stocklists)
 
@@ -119,9 +134,13 @@ function App() {
     console.log(stocklist)
 
     const deleteCoinlist = async (id) => {
-        const res = await fetch(`http://localhost:9999/coinlist/${id}`, {
+        const res = await fetch(`https://capidex.onrender.com/coinlist/${id}`, {
             credentials: 'include',
             method: 'DELETE',
+            headers: {
+                "Access-Control-Allow-Origin": "https://capidex.netlify.app/",
+                "Access-Control-Allow-Credentials": true,
+            },
         })
         const data = await res.json()
         if (!res.ok) {
@@ -131,9 +150,13 @@ function App() {
 
     }
     const deleteStocklist = async (id) => {
-        const res = await fetch(`http://localhost:9999/stocklist/${id}`, {
+        const res = await fetch(`https://capidex.onrender.com/stocklist/${id}`, {
             credentials: 'include',
             method: 'DELETE',
+            headers: {
+                "Access-Control-Allow-Origin": "https://capidex.netlify.app/",
+                "Access-Control-Allow-Credentials": true,
+            },
         })
         const data = await res.json()
         if (!res.ok) {
@@ -144,8 +167,12 @@ function App() {
     }
 
     const logout = async () => {
-        const res = await fetch('http://localhost:9999/user/logout', {
-            credentials: 'include'
+        const res = await fetch('https://capidex.onrender.com/user/logout', {
+            credentials: 'include',
+            headers: {
+                "Access-Control-Allow-Origin": "https://capidex.netlify.app/",
+                "Access-Control-Allow-Credentials": true,
+            },
         })
         const data = await res.json()
         alert(data.msg)

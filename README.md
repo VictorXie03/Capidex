@@ -42,14 +42,13 @@ Ensure the following software is installed on your system:
 
 - Node.js
 - npm
-- MongoDB
 
 ### Installation
 
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/capidex.git
+    git clone https://github.com/VictorXie03/capidex.git
     ```
 
 2. Navigate to the project folder:
@@ -63,11 +62,6 @@ Ensure the following software is installed on your system:
     ```bash
     npm install
     ```
-
-4. Configure MongoDB:
-
-    - Ensure MongoDB is running.
-    - Update the MongoDB connection details in the project configuration.
 
 ## Usage
 
