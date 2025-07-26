@@ -2,9 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
+body {
+    background: linear-gradient(120deg, #1f1c2c, #928dab);
+    color: #f0f0f0;
+    min-height: 100vh;
+}
 
 /* Watchlist Container */
 .watchlist {
@@ -12,467 +17,196 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 2px solid #007BFF;
-    border-radius: 10px;
     padding: 3vh;
     width: 80vw;
     max-width: 1000px;
-    height: 70vh;
-    max-height: 90vh;
-    background-color: #FFFFFF;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-    z-index: 9999;
-    overflow-y: scroll;
-    margin: 0 auto;
-    font-size: 2rem;
+    height: 75vh;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
+    overflow-y: auto;
+    z-index: 1000;
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-/* Watchlist Title */
+/* Title */
 .watchlist h2 {
-    font-size: 3.5rem;
-    margin: 0 0 2vh 0;
+    font-size: 3rem;
     text-align: center;
-    color: #007BFF;
+    margin-bottom: 2rem;
+    color: #f9f871;
+    text-shadow: 0 0 10px #f9f87188;
 }
 
-/* Watchlist Items */
+/* List */
 .watchlist ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
 }
 
 .watchlist li {
-    margin-bottom: 1.5vh;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s;
+}
+
+.watchlist li:hover {
+    background: rgba(255, 255, 255, 0.12);
 }
 
 .watchlist li a {
-    color: #333;
+    color: #ffffff;
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
+    font-weight: 600;
 }
 
 .watchlist li a:hover {
-    color: #007BFF;
+    color: #4ee4c1;
+    text-shadow: 0 0 5px #4ee4c1;
 }
 
-img {
-    max-width: 100%;
-    display: block;
-}
-
-.width {
-    max-width: 90vw;
-    margin: 0 auto;
-    position: relative;
-}
-
-.Nav-heading {
-    position: fixed;
-    top: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-}
-
-.watchlist {
-    padding-top: 5vw;
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-}
-
-svg {
-    top: 50%;
-    left: 0;
-    margin-top: -2vw;
-}
-
-.home-search {
-    padding: 10vw 0;
-    text-align: center;
-}
-
-h2 {
-    font-size: 4vw;
-    margin-bottom: 3vw;
-    text-align: center;
-}
-
-.home-cryptos {
-    font-size: 3vw;
-    margin-bottom: 3vw;
-}
-
-h3 {
-    font-size: 3vw;
-    margin-bottom: 3vw;
-    text-align: center;
-}
-
-.home-crypto {
-    a {
-        text-decoration: none;
-        display: flex;
-        gap: 3vw;
-        align-items: center;
-        padding: 1vw 0;
-        border-bottom: 1px solid #ddd;
-    }
-}
-
-.home-crypto-image {
-    width: 10vw;
-    max-width: 5rem;
-}
-
-.home-crypto-name {
-    flex: 1;
-    font-size: 2.2rem
-}
-
-.home-crypto-prices {
-    padding-right: 5vw;
-    font-size: 2.2rem
-}
-
-.watchlist-crypto-name {
-    flex: 1;
-    font-size: 1.5rem
-}
-
-.watchlist-crypto-prices {
-    padding-right: 5vw;
-    font-size: 1.5rem
-}
-
-
-
-.home-stock-name {
-    flex: 1;
-    font-size: 2.2rem
-}
-
-span {
-    display: block;
-}
-
-.coin-info {
-    padding-top: 20vw;
-}
-
-.home-page {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
-}
-
+/* Login Form */
 .login-form-border {
-    border: thick double #32a1ce;
-    border-radius: 1vw;
-    display: flex;
-    flex-direction: column;
+    border: 2px solid #ffffff22;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.4);
 }
 
 .login-form-container {
     position: absolute;
     top: 25%;
-    width: 70%;
-    max-width: 30rem;
+    width: 90%;
+    max-width: 400px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-form .form-inner {
-    position: relative;
-    display: flex;
-    background-color: white;
-    padding: 5vw;
-    z-index: 2;
-    border-radius: 1vw;
-    flex-direction: column;
+.form-inner h2 {
+    color: #ffffff;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
 }
 
-form {
-    .form-inner {
-        h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group {
-            flex-direction: column;
-            margin-bottom: 2.5rem;
-
-            .inputfield {
-                border: none;
-                border-bottom: 1px solid #ccc;
-                width: 100%;
-                outline: none;
-                padding: 1rem 0;
-                font-size: 1.8rem;
-            }
-        }
-    }
-
-    .switch-to-register-button {
-        font-size: 1.6rem;
-        border: none;
-        padding-top: 1rem;
-    }
-
-    // Media query for smaller screens
-    @media screen and (max-width: 768px) {
-        .form-inner {
-            h2 {
-                font-size: 1.8rem;
-                margin-bottom: 1rem;
-            }
-
-            .form-group {
-                margin-bottom: 2rem;
-
-                .inputfield {
-                    font-size: 1.6rem;
-                }
-            }
-        }
-
-        .switch-to-register-button {
-            font-size: 1.4rem;
-            padding-top: 0.8rem;
-        }
-    }
-}
-
-header {
-    text-align: center;
-    margin-bottom: 1em;
-}
-
-h2 {
-    font-size: 2em;
-    margin: 0.5em;
-}
-
-.stock-info {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-top: 2em;
-}
-
-.stock-info div {
-    width: 45%;
-    margin-bottom: 1em;
-}
-
-.stock-info h4 {
-    font-size: 1.2em;
-    margin-bottom: 0.5em;
-}
-
-.stock-info span {
-    font-size: 1.1em;
-    color: #666;
-}
-
-.recharts-wrapper {
-    margin-top: 2em;
-}
-
-/* Style for the page header */
-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 40px;
-    background-color: #282c34;
-    color: white;
-}
-
-/* Style for the coin image */
-img.resize {
-    height: 200px;
-    width: 200px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-bottom: 20px;
-}
-
-/* Style for the chart container */
-.chart-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: #f5f5f5;
-    padding: 40px;
-}
-
-/* Style for the chart */
-.recharts-wrapper {
-    width: 100%;
-    max-width: 800px;
-}
-
-/* Style for the chart buttons */
-.chart-buttons {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.chart-buttons button {
-    background-color: #4CAF50;
-    color: white;
+.inputfield {
+    background: transparent;
     border: none;
-    padding: 10px 20px;
-    margin-right: 10px;
+    border-bottom: 2px solid #ccc;
+    color: #fff;
+    padding: 0.75rem;
+    font-size: 1.1rem;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.switch-to-register-button {
+    background: none;
+    color: #f0f0f0;
+    border: none;
+    font-size: 1rem;
     cursor: pointer;
-    border-radius: 5px;
+    text-decoration: underline;
 }
 
-.chart-buttons button:last-child {
-    margin-right: 0;
-}
-
-.chart-buttons button:hover {
-    opacity: 0.8;
-}
-
-/* Style for the coin info container */
-.coin-info {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    background-color: white;
-    padding: 40px;
-}
-
-/* Style for the coin info card */
-.coin-info div {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 20px;
-    text-align: center;
-}
-
-.coin-info h4 {
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.coin-info span {
-    font-size: 1.5rem;
-}
-
-.list-item-stock-container {
+/* Navigation */
+.Nav-heading {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 5px;
+    justify-content: center;
+    color: #ffffff;
+    z-index: 1001;
 }
 
-.stock-link {
-    text-decoration: none;
-    color: #000;
-    font-size: 20px;
-    font-weight: bold;
+/* Abstract style headers */
+h2,
+h3,
+h4 {
+    color: #eeeeee;
+    text-align: center;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
 }
 
-.stock-name {
-    margin-right: 10px;
+/* Coin & Stock Cards */
+.coin-info,
+.stock-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
 }
 
+.coin-info div,
+.stock-info div {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.coin-info span,
+.stock-info span {
+    font-size: 1.3rem;
+}
+
+/* Buttons */
+button,
 .add-to-watchlist-btn {
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #007bff;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
     color: #fff;
-    font-weight: bold;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    font-size: 1rem;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-.add-to-watchlist-btn:disabled {
-    opacity: 0.5;
+button:hover,
+.add-to-watchlist-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #fff5;
+}
+
+button:disabled {
+    opacity: 0.6;
     cursor: not-allowed;
 }
 
-.stock-price {
-    font-weight: bold;
+.home-page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 1rem;
 }
 
-/* ChatGPTContainer styles */
-.chatgpt-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    transition: right 0.3s ease-in-out;
+img {
+    border-radius: 50%;
+    max-width: 150px;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
 
-.chatgpt-container.closed {
-    right: -300px;
-}
-
-/* ChatGPTBox styles */
-.chatgpt-box {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    max-height: 300px;
-    overflow-y: auto;
-}
-
-/* User and Bot message styles */
-.chatgpt-user {
-    color: #333;
-    margin-bottom: 5px;
-}
-
-.chatgpt-bot {
-    color: #007bff;
-    margin-bottom: 5px;
-}
-
-/* Input and Send button styles */
-.chatgpt-input {
-    width: calc(100% - 20px);
-    padding: 8px;
-    margin-top: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
-
-.chatgpt-button {
-    width: 100%;
-    padding: 8px;
-    margin-top: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-/* Toggle button styles */
-.chatgpt-toggle-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    cursor: pointer;
+.chart-container {
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
+    backdrop-filter: blur(5px);
+    margin: 2rem auto;
+    max-width: 900px;
 }
