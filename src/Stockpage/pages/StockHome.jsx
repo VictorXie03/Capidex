@@ -7,6 +7,7 @@ export default function StockHome({ addStocklist, stocklist }) {
 
     React.useEffect(() => {
         stockstore.fetchStocks();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

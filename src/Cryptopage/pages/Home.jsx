@@ -7,6 +7,7 @@ export default function Home({ addCoinlist, coinlist }) {
 
     React.useEffect(() => {
         store.fetchCoins();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

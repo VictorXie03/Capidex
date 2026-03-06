@@ -1,10 +1,9 @@
 import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { AiOutlineClose } from 'react-icons/ai';
 
 const Watchlist = ({ coinlist, stocklist, deleteCoinlist, deleteStocklist }) => {
-  const coins = Array.isArray(coinlist) ? coinlist : [];
-  const stocks = Array.isArray(stocklist) ? stocklist : [];
+  const coins = useMemo(() => Array.isArray(coinlist) ? coinlist : [], [coinlist]);
+  const stocks = useMemo(() => Array.isArray(stocklist) ? stocklist : [], [stocklist]);
   const totalAssets = coins.length + stocks.length;
 
   // Portfolio value totals

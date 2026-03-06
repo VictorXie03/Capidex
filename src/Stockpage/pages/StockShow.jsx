@@ -9,6 +9,7 @@ export default function StockShow() {
 
     React.useEffect(() => {
         storeStock.fetchData(params.symbol);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     let data = [];

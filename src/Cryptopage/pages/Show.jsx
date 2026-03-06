@@ -10,6 +10,7 @@ export default function Show() {
 
     React.useEffect(() => {
         store.fetchData(params.id);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [params.id]);
 
     const determineTimeFormat = () => {
