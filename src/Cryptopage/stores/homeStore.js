@@ -1,6 +1,8 @@
-import axios from 'axios'
-import create from 'zustand'
-import debounce from '../helpers/debounce'
+import axios from 'axios';
+import create from 'zustand';
+import debounce from '../helpers/debounce';
+
+const API = process.env.REACT_APP_API_URL || 'https://capidex.onrender.com';
 
 const homeStore = create((set) => ({
     coins: [],
@@ -8,54 +10,32 @@ const homeStore = create((set) => ({
     query: '',
 
     setQuery: (e) => {
-        set({ query: e.target.value })
-        homeStore.getState().searchCoins()
+        set({ query: e.target.value });
+        homeStore.getState().searchCoins();
     },
 
     searchCoins: debounce(async () => {
-        const { query, trending } = homeStore.getState()
-
-        if (query.length > 2) {
-            const res = await axios.get(`https://api.coingecko.com/api/v3/search?query=${query}
-        `);
-
-            const coins = res.data.coins.map(coin => {
-                return {
-                    name: coin.name,
-                    image: coin.large,
-                    id: coin.id
-                };
-            });
-
-            set({ coins });
+        const { query, trending } = homeStore.getState();
+        if (query.length > 1) {
+            try {
+                const res = await axios.get(`${API}/market/crypto/search?q=${query}`);
+                set({ coins: res.data?.length ? res.data : trending });
+            } catch {
+                set({ coins: trending });
+            }
         } else {
             set({ coins: trending });
         }
-    }, 500),
+    }, 400),
+
     fetchCoins: async () => {
-        const [res, btcRes] = await Promise.all([
-            axios.get("https://api.coingecko.com/api/v3/search/trending"),
-            axios.get('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd'),
-        ]);
+        try {
+            const res = await axios.get(`${API}/market/crypto/trending`);
+            set({ coins: res.data, trending: res.data });
+        } catch (err) {
+            console.error('fetchCoins error:', err);
+        }
+    },
+}));
 
-        const btcPrice = btcRes.data.bitcoin.usd;
-
-
-        const coins = res.data.coins.map(coin => {
-            return {
-                name: coin.item.name,
-                image: coin.item.large,
-                id: coin.item.id,
-                priceBtc: coin.item.price_btc?.toFixed(10),
-                priceUsd: (coin.item.price_btc * btcPrice)?.toFixed(10),
-            }
-        })
-
-        console.log(coins);
-
-        set({ coins, trending: coins })
-
-    }
-}))
-
-export default homeStore
+export default homeStore;

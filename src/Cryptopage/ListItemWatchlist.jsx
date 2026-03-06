@@ -1,20 +1,21 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { AiOutlineClose } from 'react-icons/ai'
-
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function ListItemWatchlist({ coin, deleteCoinlist }) {
-    console.log(coin)
     return (
-        <div className="home-crypto">
-            <Link to={`/cryptocurrency/${coin.id}`}>
-                <span className="watchlist-crypto-name">{coin.name}</span>
-
-                <span className="watchlist-crypto-prices">
-                    <span>{coin.price} USD</span>
-                </span>
-            </Link>
-            <button onClick={() => deleteCoinlist(coin._id)}><AiOutlineClose /></button>
-        </div>
-    )
+        <tr>
+            <td>
+                <Link to={`/cryptocurrency/${coin.id}`} className="asset-link-cell">
+                    <div className="watchlist-asset-name">{coin.name}</div>
+                </Link>
+            </td>
+            <td><span className="type-badge crypto">CRYPTO</span></td>
+            <td className="price-cell">
+                ${Number(coin.price || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 4 })}
+            </td>
+            <td>
+                <button className="delete-btn" onClick={() => deleteCoinlist(coin._id)}>REMOVE</button>
+            </td>
+        </tr>
+    );
 }

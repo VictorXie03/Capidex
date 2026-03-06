@@ -1,59 +1,41 @@
-import axios from 'axios'
-import create from 'zustand'
-import debounce from '../Cryptopage/helpers/debounce'
+import axios from 'axios';
+import create from 'zustand';
+import debounce from '../Cryptopage/helpers/debounce';
+
+const API = process.env.REACT_APP_API_URL || 'https://capidex.onrender.com';
 
 const homeStock = create((set) => ({
     stocks: [],
+    trending: [],
     query: '',
 
     setQuery: (e) => {
-        set({ query: e.target.value })
-        homeStock.getState().searchStocks()
+        set({ query: e.target.value });
+        homeStock.getState().searchStocks();
     },
 
     searchStocks: debounce(async () => {
-        const { query, trending } = homeStock.getState()
-
-        if (query.length > 2) {
-            const res = await axios.get(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${query}&apikey=QD5VF4J0PRZS8TED
-        `);
-
-            const stocks = res.data.bestMatches.map(bestMatches => {
-                return {
-                    name: bestMatches["2. name"],
-                    symbol: bestMatches["1. symbol"],
-                };
-            });
-
-            console.log(stocks)
-
-            set({ stocks });
-        } else {
-            set({ stocks: trending })
-        }
-    }, 500),
-    fetchStocks: async () => {
-        const [tslaRes, applRes, googRes, amznRes, metaRes] = await Promise.all([
-            axios.get("https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=TSLA&apikey=QD5VF4J0PRZS8TED"),
-            axios.get("https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=AAPL&apikey=QD5VF4J0PRZS8TED"),
-            axios.get("https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=GOOGL&apikey=QD5VF4J0PRZS8TED"),
-            axios.get("https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=AMZN&apikey=QD5VF4J0PRZS8TED"),
-            axios.get("https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=META&apikey=QD5VF4J0PRZS8TED"),
-        ]);
-
-        const stocks = [tslaRes, applRes, googRes, amznRes, metaRes].map(stock => {
-            return {
-                symbol: stock.data["Global Quote"]["01. symbol"],
-                price: stock.data["Global Quote"]["05. price"]
+        const { query, trending } = homeStock.getState();
+        if (query.length > 1) {
+            try {
+                const res = await axios.get(`${API}/market/stocks/search?q=${query}`);
+                set({ stocks: res.data?.length ? res.data : trending });
+            } catch {
+                set({ stocks: trending });
             }
-        })
+        } else {
+            set({ stocks: trending });
+        }
+    }, 400),
 
-        console.log(stocks);
+    fetchStocks: async () => {
+        try {
+            const res = await axios.get(`${API}/market/stocks/trending`);
+            set({ stocks: res.data, trending: res.data });
+        } catch (err) {
+            console.error('fetchStocks error:', err);
+        }
+    },
+}));
 
-        set({ stocks, trending: stocks })
-    }
-
-}))
-
-
-export default homeStock
+export default homeStock;

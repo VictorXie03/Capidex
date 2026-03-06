@@ -1,16 +1,24 @@
-import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
-import { AiOutlineClose } from 'react-icons/ai'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function ListItemStocksWatchlist({ stock, deleteStocklist }) {
     return (
-
-        <div className="home-crypto">
-            <Link to={`/stock/${stock.symbol}`}>
-                <span className="watchlist-crypto-name">{stock.name} </span>
-                <span className="watchlist-crypto-prices">{stock.price} USD</span>
-            </Link><button onClick={() => deleteStocklist(stock._id)}><AiOutlineClose /></button>
-
-        </div>
-    )
+        <tr>
+            <td>
+                <Link to={`/stock/${stock.symbol}`} className="asset-link-cell">
+                    <div>
+                        <div className="watchlist-asset-name">{stock.name || stock.symbol}</div>
+                        <div className="watchlist-asset-symbol">{stock.symbol}</div>
+                    </div>
+                </Link>
+            </td>
+            <td><span className="type-badge stock">EQUITY</span></td>
+            <td className="price-cell">
+                ${Number(stock.price || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+            </td>
+            <td>
+                <button className="delete-btn" onClick={() => deleteStocklist(stock._id)}>REMOVE</button>
+            </td>
+        </tr>
+    );
 }
